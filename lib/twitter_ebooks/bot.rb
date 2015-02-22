@@ -384,10 +384,10 @@ module Ebooks
       elsif ev.is_a? Twitter::Tweet
         meta = meta(ev)
 
-        if conversation(ev).is_bot?(ev.user.screen_name)
-          log "Not replying to suspected bot @#{ev.user.screen_name}"
-          return false
-        end
+        #if conversation(ev).is_bot?(ev.user.screen_name)
+        #  log "Not replying to suspected bot @#{ev.user.screen_name}"
+        #  return false
+        #end
 
         text = meta.reply_prefix + text unless text.match(/@#{Regexp.escape ev.user.screen_name}/i)
         log "Replying to @#{ev.user.screen_name} with: #{text}"
